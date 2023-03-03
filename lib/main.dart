@@ -30,12 +30,16 @@ class _HomePageState extends State<HomePage> {
         title: Center(child: const Text("席替えアプリです。機能はこれから作ります")),
       ),
       body: Center(
-          child: Column(
+        child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text("Intel ARC"),
+          const Text("席替えアプリ製作中だよ",
+            style: TextStyle(fontSize: 23),
+          ),
+          const SizedBox(height: 20),
           Image.network(
-              'https://www.intel.co.jp/content/dam/www/central-libraries/us/en/images/arc-sigid-dark-standard-jap.jpg.rendition.intel.web.480.270.jpg')
+            'https://avatars.githubusercontent.com/u/126380598?s=200&v=4'
+          )
         ],
       )),
     );
