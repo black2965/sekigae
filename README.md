@@ -1,6 +1,6 @@
 # sekigae
 
-A new Flutter project. 席替え
+A new Flutter project. 席替えソフトです
 
 ## Getting Started
 
