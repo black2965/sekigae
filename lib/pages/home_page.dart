@@ -12,20 +12,17 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(
-            child: Text("席替え侍")
-        ),
+        title: const Center(child: Text("席替え侍")),
       ),
       body: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                child: Image.asset('images/samurai_kettou.png'),
-              ),
-            ],
-          )
-      ),
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            child: Image.asset('images/samurai_kettou.png'),
+          ),
+        ],
+      )),
     );
   }
 }
