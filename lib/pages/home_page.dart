@@ -18,9 +18,21 @@ class _HomePageState extends State<HomePage> {
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Container(
-            child: Image.asset('images/samurai_kettou.png'),
+          Text(
+            "席替え侍",
+            style: TextStyle(fontSize: 50),
           ),
+          Text(
+            "開発版",
+            style: TextStyle(fontSize: 25),
+          ),
+          SizedBox(height: 50),
+          ElevatedButton(
+            child: Text("CSVファイルを選ぶ"),
+            onPressed: () {
+              //ファイルピッカーを開く
+            },
+          )
         ],
       )),
     );
