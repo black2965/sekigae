@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:file_picker/file_picker.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -27,8 +28,17 @@ class _HomePageState extends State<HomePage> {
           SizedBox(height: 50),
           ElevatedButton(
             child: Text("CSVファイルを選ぶ"),
-            onPressed: () {
-              //ファイルピッカーを開く
+            onPressed: () async{
+              FilePickerResult? result = await FilePicker.platform.pickFiles(
+                type: FileType.custom,
+                allowedExtensions: ['csv'],
+                dialogTitle: "CSVファイルを選んでください"
+              );
+              if (result != null) {
+                print(result.paths);
+              } else {
+
+              }
             },
           ),
           SizedBox(height: 50),
