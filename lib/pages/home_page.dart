@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:sekigae/pages/customize_page.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -36,6 +38,8 @@ class _HomePageState extends State<HomePage> {
               );
               if (result != null) {
                 print(result.paths);
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => CustomizePage()));
               } else {
 
               }
