@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sekigae/app_theme.dart';
 import 'pages/test_page.dart';
 
 void main() {
@@ -10,9 +11,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: TestPage(),
+      theme: ThemeData(
+        primarySwatch: AppTheme.app_primarySwatch_color,
+      ),
+      home: const TestPage(),
     );
   }
 }
