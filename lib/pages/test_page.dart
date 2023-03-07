@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sekigae/pages/export_page.dart';
 import 'package:sekigae/pages/home_page.dart';
 import 'package:sekigae/pages/result_page.dart';
+import 'package:sekigae/pages/customize_page.dart';
 
 class TestPage extends StatefulWidget {
   const TestPage({Key? key}) : super(key: key);
@@ -26,6 +27,13 @@ class _TestPageState extends State<TestPage> {
               onPressed: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => ExportPage()));
+              },
+            ),
+            TextButton(
+              child: Text("Customize page"),
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => CustomizePage()));
               },
             ),
             TextButton(
