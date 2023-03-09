@@ -56,16 +56,6 @@ class _HomePageState extends State<HomePage> {
             } else {}
           },
         ),
-        const SizedBox(height: 50),
-        TextButton(
-          onPressed: () {
-            showAboutDialog(
-                context: context,
-                applicationName: "席替え侍",
-                applicationVersion: "開発版");
-          },
-          child: const Text("席替え侍について"),
-        )
       ])),
     );
   }
