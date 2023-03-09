@@ -22,37 +22,37 @@ class _TestPageState extends State<TestPage> {
       body: Center(
         child: Column(
           children: [
-            const Text("テストページ"),
+            Text("テストページ"),
             TextButton(
-              child: const Text("Export Page"),
+              child: Text("Export Page"),
               onPressed: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => ExportPage()));
               },
             ),
             TextButton(
-              child: const Text("Customize page"),
+              child: Text("Customize page"),
               onPressed: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => CustomizePage()));
               },
             ),
             TextButton(
-              child: const Text("Home Page"),
+              child: Text("Home Page"),
               onPressed: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => HomePage()));
               },
             ),
             TextButton(
-              child: const Text("Info Page"),
+              child: Text("Info Page"),
               onPressed: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => InfoPage()));
               },
             ),
             TextButton(
-              child: const Text("Result Page"),
+              child: Text("Result Page"),
               onPressed: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => ResultPage()));
