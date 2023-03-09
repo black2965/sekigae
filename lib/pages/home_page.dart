@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:sekigae/pages/customize_page.dart';
@@ -17,16 +18,16 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Row(
           children: [
-            Text("席替え侍"),
-            Expanded(child: SizedBox()),
+            const Text("席替え侍"),
+            const Expanded(child: SizedBox()),
             ElevatedButton.icon(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => InfoPage()));
-                },
-                icon: Icon(Icons.info_outline),
-                label: Text("情報"),
-            )
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const InfoPage()));
+              },
+              icon: const Icon(Icons.info_outline),
+              label: const Text("情報"),
+            ),
           ],
         ),
       ),
@@ -52,7 +53,7 @@ class _HomePageState extends State<HomePage> {
               print(result.paths);
               if (!mounted) return;
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => CustomizePage()));
+                  MaterialPageRoute(builder: (context) => const CustomizePage()));
             } else {}
           },
         ),
