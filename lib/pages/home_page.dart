@@ -53,13 +53,22 @@ class _HomePageState extends State<HomePage> {
                 type: FileType.custom,
                 allowedExtensions: ['csv'],
                 dialogTitle: "CSVファイルを選んでください");
-
             if (result != null) {
               String? path = result.paths[0];
               final input = File(path!).openRead();
               final fields = await input.transform(utf8.decoder).transform(CsvToListConverter(eol: '\n')).toList();
-              Map contents = fields.asMap();
-              print(contents);
+              List content = fields[0];
+              List<Map<String,dynamic>> person = [];
+              for(int i=0 ; i<fields.length ; i++) {
+                List content = fields[i];
+                Map<String, dynamic> map = {
+                  "number": content[0],
+                  "name": content[1],
+                  "front": content[2]
+                };
+                person.add(map);
+              }
+              print(person);
               if (!mounted) return;
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const CustomizePage()));
