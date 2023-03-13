@@ -1,8 +1,12 @@
+import 'dart:convert';
+import 'dart:io';
+import 'package:csv/csv.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:sekigae/pages/customize_page.dart';
 import 'package:sekigae/pages/info_page.dart';
+import 'dart:async';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -49,8 +53,12 @@ class _HomePageState extends State<HomePage> {
                 type: FileType.custom,
                 allowedExtensions: ['csv'],
                 dialogTitle: "CSVファイルを選んでください");
+
             if (result != null) {
-              print(result.paths);
+              String? path = result.paths[0];
+              final input = File(path!).openRead();
+              final fields = await input.transform(utf8.decoder).transform(CsvToListConverter()).toList();
+              print(fields);
               if (!mounted) return;
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const CustomizePage()));
