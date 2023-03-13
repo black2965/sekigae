@@ -57,18 +57,16 @@ class _HomePageState extends State<HomePage> {
               String? path = result.paths[0];
               final input = File(path!).openRead();
               final fields = await input.transform(utf8.decoder).transform(CsvToListConverter(eol: '\n')).toList();
-              List content = fields[0];
-              List<Map<String,dynamic>> person = [];
+              List<Map<String,dynamic>> member = [];
               for(int i=0 ; i<fields.length ; i++) {
-                List content = fields[i];
+                List person = fields[i];
                 Map<String, dynamic> map = {
-                  "number": content[0],
-                  "name": content[1],
-                  "front": content[2]
+                  "number": person[0],
+                  "name": person[1],
+                  "front": person[2]
                 };
-                person.add(map);
+                member.add(map);
               }
-              print(person);
               if (!mounted) return;
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const CustomizePage()));
