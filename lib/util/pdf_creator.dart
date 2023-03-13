@@ -5,11 +5,12 @@ import 'package:printing/printing.dart';
 class PdfCreator {
   static Future<Document> create() async {
     final pdf = Document();
-    final Font font = await PdfGoogleFonts.shipporiMinchoRegular();
+    final font = await PdfGoogleFonts.sawarabiGothicRegular();
 
     // 表紙
     final sheet = Page(
-      pageTheme: const PageTheme(
+      pageTheme: PageTheme(
+        theme: ThemeData.withFont(base: font),
         pageFormat: PdfPageFormat.a4,
         orientation: PageOrientation.portrait,
       ),
