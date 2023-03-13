@@ -57,8 +57,9 @@ class _HomePageState extends State<HomePage> {
             if (result != null) {
               String? path = result.paths[0];
               final input = File(path!).openRead();
-              final fields = await input.transform(utf8.decoder).transform(CsvToListConverter()).toList();
-              print(fields);
+              final fields = await input.transform(utf8.decoder).transform(CsvToListConverter(eol: '\n')).toList();
+              Map contents = fields.asMap();
+              print(contents);
               if (!mounted) return;
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const CustomizePage()));
