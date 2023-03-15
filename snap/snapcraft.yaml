@@ -19,7 +19,7 @@ parts:
 apps:
   sekigae:
     command: sekigae
-    extensions: [flutter-master]
+    extensions: [flutter-stable]
     plugs:
       - network
       - home
