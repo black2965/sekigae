@@ -1,0 +1,26 @@
+name: sekigae
+version: "1.0"
+summary: 席替え侍
+description: Flutterベースのデスクトップ用『席替えアプリ』
+confinement: strict
+base: core18
+grade: stable
+architectures:
+  - build-on: amd64
+license: GPL-3.0+
+
+parts:
+  sekigae:
+    plugin: flutter
+    source: https://github.com/sis314/sekigae.git
+    source-type: git
+    flutter-target: lib/main.dart
+
+apps:
+  sekigae:
+    command: sekigae
+    extensions: [flutter-master]
+    plugs:
+      - network
+      - home
+
