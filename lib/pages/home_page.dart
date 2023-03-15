@@ -8,6 +8,8 @@ import 'package:sekigae/pages/customize_page.dart';
 import 'package:sekigae/pages/info_page.dart';
 import 'dart:async';
 
+import 'package:sekigae/util/csv_reader.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -55,6 +57,7 @@ class _HomePageState extends State<HomePage> {
                 dialogTitle: "CSVファイルを選んでください");
             if (result != null) {
               String? path = result.paths[0];
+              CsvReader();
               final input = File(path!).openRead();
               final fields = await input.transform(utf8.decoder).transform(CsvToListConverter(eol: '\n')).toList();
               List<Map<String,dynamic>> member = [];
