@@ -1,0 +1,14 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=sekigae
+GenericName=席替え侍
+Comment=席替えを行うアプリケーション
+Exec=sekigae
+Icon=icon/icon.png
+Terminal=false
+Type=Application
+StartupNotify=false
+Keywords=sekigae,samurai,せきがえ,さむらい;
+Categories=Education;
+

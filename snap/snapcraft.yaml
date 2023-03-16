@@ -1,26 +1,49 @@
 name: sekigae
-version: "1.0"
-summary: 席替え侍
-description: Flutterベースのデスクトップ用『席替えアプリ』
-confinement: strict
+title: 席替え侍
 base: core18
+version: "1.0"
+issues: https://github.com/sis314/sekigae/issues
+source-code: https://github.com/sis314/sekigae.git
+website: https://mican3.github.io/sekigae.html
+summary: 席替えアプリ
+description: Flutterベースのデスクトップ用『席替えアプリ』
+type: app
+confinement: strict
+#icon: snap/gui/logo.png
+license: GPL-3.0+
 grade: stable
 architectures:
-  - build-on: amd64
-license: GPL-3.0+
-
+  - amd64
+apps:
+  sekigae:
+    command: bin/sekigae
+    desktop: assets/sekigae.desktop
+    extensions: [flutter-stable]
+    plugs:
+      - home
+      - network
 parts:
   sekigae:
     plugin: flutter
     source: https://github.com/sis314/sekigae.git
     source-type: git
+    source-branch: develop
+    #source: .
+    #source-type: local
     flutter-target: lib/main.dart
-
-apps:
-  sekigae:
-    command: sekigae
-    extensions: [flutter-master]
-    plugs:
-      - network
-      - home
-
+  # ファイルピッカーを開くため
+  # Integrate custom dialogs in your snap - doc - snapcraft.io
+  # https://forum.snapcraft.io/t/integrate-custom-dialogs-in-your-snap/10825
+  zenity:
+    plugin: nil
+    stage-packages:
+      - zenity
+    prime:
+      - usr/bin/zenity
+      - usr/share/zenity/*
+      
+layout:
+  # Fix resource relocation problem of zenity part
+  /usr/share/zenity:
+    symlink: $SNAP/usr/share/zenity
+    
