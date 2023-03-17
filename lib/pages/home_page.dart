@@ -72,7 +72,7 @@ class _HomePageState extends State<HomePage> {
               }
               if (!mounted) return;
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const CustomizePage()));
+                  MaterialPageRoute(builder: (context) => CustomizePage(member: fields.length,)));
             } else {}
           },
         ),
