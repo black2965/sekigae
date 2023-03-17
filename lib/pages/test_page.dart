@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sekigae/pages/export_page.dart';
+import 'package:sekigae/pages/guide_page.dart';
 import 'package:sekigae/pages/home_page.dart';
 import 'package:sekigae/pages/info_page.dart';
 import 'package:sekigae/pages/result_page.dart';
@@ -28,6 +29,13 @@ class _TestPageState extends State<TestPage> {
               onPressed: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => ExportPage()));
+              },
+            ),
+            TextButton(
+              child: const Text("Guide Page"),
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => GuidePage()));
               },
             ),
             TextButton(

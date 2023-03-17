@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:sekigae/pages/customize_page.dart';
+import 'package:sekigae/pages/guide_page.dart';
 import 'package:sekigae/pages/info_page.dart';
 import 'dart:async';
 
@@ -49,19 +50,22 @@ class _HomePageState extends State<HomePage> {
         ),
         const SizedBox(height: 50),
         ElevatedButton(
-          child: const Text("CSVファイルを選ぶ"),
+          child: const Text("名簿ファイルを読み込む (.csv)"),
           onPressed: () async {
             FilePickerResult? result = await FilePicker.platform.pickFiles(
                 type: FileType.custom,
                 allowedExtensions: ['csv'],
-                dialogTitle: "CSVファイルを選んでください");
+                dialogTitle: "名簿ファイルを選んでください");
             if (result != null) {
               String? path = result.paths[0];
               CsvReader();
               final input = File(path!).openRead();
-              final fields = await input.transform(utf8.decoder).transform(CsvToListConverter(eol: '\n')).toList();
-              List<Map<String,dynamic>> member = [];
-              for(int i=0 ; i<fields.length ; i++) {
+              final fields = await input
+                  .transform(utf8.decoder)
+                  .transform(CsvToListConverter(eol: '\n'))
+                  .toList();
+              List<Map<String, dynamic>> member = [];
+              for (int i = 0; i < fields.length; i++) {
                 List person = fields[i];
                 Map<String, dynamic> map = {
                   "number": person[0],
@@ -71,11 +75,23 @@ class _HomePageState extends State<HomePage> {
                 member.add(map);
               }
               if (!mounted) return;
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const CustomizePage()));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const CustomizePage()));
             } else {}
           },
         ),
+        const SizedBox(height: 50),
+        const Text('初めての方は名簿ファイルを作る必要があります'),
+        TextButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const GuidePage()));
+            },
+            child: const Text("名簿ファイルの作り方はこちら"))
       ])),
     );
   }
