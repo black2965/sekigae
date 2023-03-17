@@ -8,6 +8,8 @@ Flutterで作られています。
 
 ※注意 このアプリは開発中であり、完成していないため、実際に席替えをすることはできません。
 
+ホームページ：[https://mican3.github.io/sekigae.html](https://mican3.github.io/sekigae.html)
+
 ![image](https://user-images.githubusercontent.com/81346541/225467094-da9c07ac-5696-43c4-9aea-6fe933f50e7a.png)
 
 ## インストール方法
