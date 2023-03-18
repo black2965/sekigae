@@ -37,8 +37,7 @@ class _CustomizePageState extends State<CustomizePage> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return Scaffold(
         appBar: AppBar(title: Text('設定画面')),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -89,7 +88,6 @@ class _CustomizePageState extends State<CustomizePage> {
             ),
           ],
         ),
-      ),
     );
   }
 }
