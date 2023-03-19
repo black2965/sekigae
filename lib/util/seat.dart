@@ -1,36 +1,44 @@
 /////////////////////////////////////////
-//使用例                               //
-//Seat seat = Seat(roster, column);   //
-//seat.change();                      //
-//print(seat.resultSeats);            //
+//コンストラクタで席替え実行
+//Seat seat = Seat(roster, column, alignLeft);
+//
+//結果、横の席数、左寄せかどうかを取得可能
+// seat.resultSeats
+// seat.column
+// seat.isAlignLeft
+//
+//席替えを再実行
+//seat.change();
+// 再実行すると seat.resultSeats が書き換えられる
 ////////////////////////////////////////
 
 class Seat{
+  //Public
+  List<Map<String,dynamic>> resultSeats = [];   //席替えの結果
+  final int column;                                   //横の列数
+  final bool isAlignLeft;                             //左寄せかどうか
+  //Private
   final List<Map<String,dynamic>> _roster;  //名簿
-  final int column;                        //横の列数 Public
-
   final List<Map<String,dynamic>> _normalPersons = [];  //希望がない人たち
   final List<Map<String,dynamic>> _frontPersons= [];  //前の席を希望する人たち
 
-  late List<Map<String,dynamic>> resultSeats;    //席替えの結果 Public
-
-
   //コンストラクタ
-  Seat(this._roster, this.column){
+  Seat(this._roster, this.column, this.isAlignLeft){
     //希望がない人と、前の席を希望する人にわける
     _judgeFront();
+    //席替えを実行
+    change();
   }
 
-  //席替えを実行
+  //席替えを再実行する場合はこのメソッドを使う
   change(){
     //希望がない人と、前の席を希望する人をあわせる
     final List<Map<String,dynamic>> allPersons = _attachFrontnormal();
-
     //席を作る
     resultSeats = _makeSeats(allPersons);
   }
 
-
+  //Private
   //希望がない人と、前の席を希望する人にわける
   _judgeFront(){
     for (Map<String,dynamic> person in _roster){
