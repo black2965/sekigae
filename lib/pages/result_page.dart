@@ -14,6 +14,11 @@ class _ResultPageState extends State<ResultPage> {
       appBar: AppBar(
         title: const Text("席替え結果"),
       ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {  },
+        icon: const Icon(Icons.picture_as_pdf),
+        label: const Text("座席表をPDFで出力"),
+      ),
       body: const Center(
           child: Text("席替え結果")
       ),
