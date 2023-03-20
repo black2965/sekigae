@@ -12,6 +12,29 @@ class _ResultPageState extends State<ResultPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
+        leading: BackButton(
+          onPressed:  () => showDialog<String>(
+            context: context,
+            builder: (BuildContext context) => AlertDialog(
+              title: const Text('条件の設定ページへ戻りますか？'),
+              content: const Text('席替え結果は破棄され、二度と見ることができなくなります。'),
+              actions: <Widget>[
+                TextButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: const Text('キャンセル'),
+                ),
+                TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                    Navigator.pop(context);
+                  },
+                  child: const Text('条件の設定ページへ戻る'),
+                ),
+              ],
+            ),
+          )
+        ),
         title: const Text("席替え結果"),
         actions: <Widget>[
           ElevatedButton.icon(
@@ -42,8 +65,8 @@ class _ResultPageState extends State<ResultPage> {
         icon: const Icon(Icons.picture_as_pdf),
         label: const Text("座席表をPDFで出力"),
       ),
-      body: const Center(
-          child: Text("席替え結果")
+      body: Center(
+        child: Text("aaaaa"),
       ),
     );
   }
