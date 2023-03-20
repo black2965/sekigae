@@ -58,10 +58,9 @@ class _HomePageState extends State<HomePage> {
             if (result != null) {
               CsvReader csv =CsvReader(result.paths);
               List member = await csv.read();
-              print(member);
               if (!mounted) return;
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => CustomizePage(member: member.length,)));
+                  MaterialPageRoute(builder: (context) => CustomizePage(member: member,)));
             } else {}
           },
         ),

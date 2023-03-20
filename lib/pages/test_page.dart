@@ -31,13 +31,6 @@ class _TestPageState extends State<TestPage> {
               },
             ),
             TextButton(
-              child: const Text("Customize page"),
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => CustomizePage(member:0)));
-              },
-            ),
-            TextButton(
               child: const Text("Home Page"),
               onPressed: () {
                 Navigator.push(context,

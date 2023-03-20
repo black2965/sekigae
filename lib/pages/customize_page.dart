@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CustomizePage extends StatefulWidget {
-  final int member;
-  const CustomizePage({Key? key,required this.member}) : super(key: key);
+  final List member;
+  const CustomizePage({Key? key, required this.member}) : super(key: key);
 
   @override
   State<CustomizePage> createState() => _CustomizePageState();
@@ -10,6 +10,7 @@ class CustomizePage extends StatefulWidget {
 
 class _CustomizePageState extends State<CustomizePage> {
 
+  late List member;
   late int number;
   int row = 0;
   bool? _value1 = false;
@@ -18,7 +19,9 @@ class _CustomizePageState extends State<CustomizePage> {
   @override
   void initState() {
     super.initState();
-    number = widget.member;
+    member = widget.member;
+    number = member.length;
+    print(member);
   }
   void _setValue1(bool? value) {
     setState(() {
@@ -32,8 +35,6 @@ class _CustomizePageState extends State<CustomizePage> {
       _value2 = value;
     });
   }
-
-
 
   @override
   Widget build(BuildContext context) {
