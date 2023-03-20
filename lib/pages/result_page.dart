@@ -13,7 +13,7 @@ class _ResultPageState extends State<ResultPage> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        leading: BackButton(
+        leading: IconButton(
           onPressed:  () => showDialog<String>(
             context: context,
             builder: (BuildContext context) => AlertDialog(
@@ -33,7 +33,9 @@ class _ResultPageState extends State<ResultPage> {
                 ),
               ],
             ),
-          )
+          ),
+          icon: const BackButtonIcon(),
+          tooltip: '戻る',
         ),
         title: const Text("席替え結果"),
         actions: <Widget>[
