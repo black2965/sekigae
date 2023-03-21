@@ -58,7 +58,7 @@ class _HomePageState extends State<HomePage> {
                 dialogTitle: "名簿ファイルを選んでください");
             if (result != null) {
               CsvReader csv =CsvReader(result.paths);
-              List member = await csv.read();
+              List<Map<String,dynamic>> member = await csv.read();
               if (!mounted) return;
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => CustomizePage(member: member,)));

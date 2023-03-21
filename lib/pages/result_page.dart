@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:sekigae/util/seat.dart';
 
 class ResultPage extends StatefulWidget {
-  const ResultPage({Key? key}) : super(key: key);
+  const ResultPage({Key? key, required this.seat}) : super(key: key);
+  final Seat seat;
 
   @override
   State<ResultPage> createState() => _ResultPageState();
