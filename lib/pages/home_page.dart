@@ -23,20 +23,17 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Row(
-          children: [
-            const Text("席替え侍"),
-            const Expanded(child: SizedBox()),
-            ElevatedButton.icon(
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const InfoPage()));
-              },
-              icon: const Icon(Icons.info_outline),
-              label: const Text("情報"),
-            ),
-          ],
-        ),
+        title: const Text("席替え侍"),
+        actions: <Widget>[
+          ElevatedButton.icon(
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const InfoPage()));
+            },
+            icon: const Icon(Icons.info_outline),
+            label: const Text("情報"),
+          ),
+        ]
       ),
       body: Center(
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
