@@ -1,16 +1,21 @@
-# sekigae
+# ![48](https://user-images.githubusercontent.com/81346541/225465792-f21d773c-0ab5-4c11-8132-5e3a3f1e5b06.png) 席替え侍
 
-席替えソフト
+Windows と Linux に対応した、新しい席替えアプリ。
 
-## Getting Started
+非効率な席替えを、斬る！
 
-This project is a starting point for a Flutter application.
+Flutterで作られています。
 
-A few resources to get you started if this is your first Flutter project:
+※注意 このアプリは開発中であり、完成していないため、実際に席替えをすることはできません。
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+ホームページ：[https://mican3.github.io/sekigae.html](https://mican3.github.io/sekigae.html)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![image](https://user-images.githubusercontent.com/81346541/225467094-da9c07ac-5696-43c4-9aea-6fe933f50e7a.png)
+
+## インストール方法
+### Windows
+準備中
+### Linux
+Snap Store を使って配信しています。
+
+[![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/sekigae)

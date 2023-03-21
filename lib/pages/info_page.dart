@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+//import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class InfoPage extends StatefulWidget {
@@ -21,14 +21,14 @@ class _InfoPageState extends State<InfoPage> {
             width: 700,
             child: ListView(
               children: [
-                Card(
+                const Card(
                   child: ListTile(
                     leading: Icon(Icons.apps),
                     title: Text('アプリ名'),
                     subtitle: Text('席替え侍'),
                   ),
                 ),
-                Card(
+                const Card(
                   child: ListTile(
                     leading: Icon(Icons.verified),
                     title: Text('バージョン'),
@@ -44,14 +44,14 @@ class _InfoPageState extends State<InfoPage> {
                               "https://www.gnu.org/licenses/gpl-3.0.html");
                         }
                       },
-                      leading: Icon(Icons.book),
-                      title: Text('このアプリのライセンス'),
+                      leading: const Icon(Icons.book),
+                      title: const Text('このアプリのライセンス'),
                       subtitle:
-                          Text('GNU General Public License v3.0 or later'),
-                      trailing: Icon(Icons.navigate_next)),
+                          const Text('GNU General Public License v3.0 or later'),
+                      trailing: const Icon(Icons.navigate_next)),
                 ),
-                SizedBox(height: 20),
-                Card(
+                const SizedBox(height: 20),
+                const Card(
                   child: ListTile(
                     leading: Icon(Icons.person),
                     title: Text('開発者集団『みかんさん』'),
@@ -65,10 +65,10 @@ class _InfoPageState extends State<InfoPage> {
                           await launchUrlString("https://mican3.github.io/sekigae.html");
                         }
                       },
-                      leading: Icon(Icons.home),
-                      title: Text('ホームページ'),
-                      subtitle: Text('https://mican3.github.io/sekigae.html'),
-                      trailing: Icon(Icons.open_in_new)),
+                      leading: const Icon(Icons.home),
+                      title: const Text('ホームページ'),
+                      subtitle: const Text('https://mican3.github.io/sekigae.html'),
+                      trailing: const Icon(Icons.open_in_new)),
                 ),
                 Card(
                   child: ListTile(
@@ -77,14 +77,12 @@ class _InfoPageState extends State<InfoPage> {
                         await launchUrlString("https://github.com/sis314/sekigae");
                         }
                       },
-                      leading: Icon(Icons.code),
-                      title: Text('ソースコード(Github)'),
-                      subtitle: Text('https://github.com/sis314/sekigae'),
-                      trailing: Icon(Icons.open_in_new)),
+                      leading: const Icon(Icons.code),
+                      title: const Text('ソースコード(Github)'),
+                      subtitle: const Text('https://github.com/sis314/sekigae'),
+                      trailing: const Icon(Icons.open_in_new)),
                 ),
-                SizedBox(
-                  height: 20,
-                ),
+                const SizedBox(height: 20),
                 Card(
                   child: ListTile(
                       onTap: () {
@@ -92,15 +90,15 @@ class _InfoPageState extends State<InfoPage> {
                           context: context,
                           applicationName: '席替え侍',
                           applicationVersion: '開発版',
-                          applicationIcon: FlutterLogo(),
+                          applicationIcon: const FlutterLogo(),
                           applicationLegalese:
                               'GNU General Public License v3.0 or later',
                         );
                       },
-                      leading: Icon(Icons.code),
-                      title: Text('使用したライブラリー'),
-                      subtitle: Text(''),
-                      trailing: Icon(Icons.navigate_next)),
+                      leading: const Icon(Icons.code),
+                      title: const Text('使用したライブラリー'),
+                      subtitle: const Text(''),
+                      trailing: const Icon(Icons.navigate_next)),
                 ),
               ],
             ),

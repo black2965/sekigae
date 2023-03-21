@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: "席替え侍",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: AppTheme.app_primarySwatch_color,

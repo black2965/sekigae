@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:sekigae/pages/customize_page.dart';
+import 'package:sekigae/pages/guide_page.dart';
 import 'package:sekigae/pages/info_page.dart';
 import 'dart:async';
 
@@ -49,12 +50,12 @@ class _HomePageState extends State<HomePage> {
         ),
         const SizedBox(height: 50),
         ElevatedButton(
-          child: const Text("CSVファイルを選ぶ"),
+          child: const Text("名簿ファイルを読み込む (.csv)"),
           onPressed: () async {
             FilePickerResult? result = await FilePicker.platform.pickFiles(
                 type: FileType.custom,
                 allowedExtensions: ['csv'],
-                dialogTitle: "CSVファイルを選んでください");
+                dialogTitle: "名簿ファイルを選んでください");
             if (result != null) {
               CsvReader csv =CsvReader(result.paths);
               List member = await csv.read();
@@ -64,6 +65,16 @@ class _HomePageState extends State<HomePage> {
             } else {}
           },
         ),
+        const SizedBox(height: 50),
+        const Text('初めての方は名簿ファイルを作る必要があります'),
+        TextButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const GuidePage()));
+            },
+            child: const Text("名簿ファイルの作り方はこちら"))
       ])),
     );
   }
