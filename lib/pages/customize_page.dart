@@ -13,7 +13,7 @@ class _CustomizePageState extends State<CustomizePage> {
   late List member;
   late int number;
   int row = 0;
-  bool? _value1 = false;
+  bool? _value1 = true;
   bool? _value2 = false;
 
   @override
@@ -70,21 +70,42 @@ class _CustomizePageState extends State<CustomizePage> {
               children: <Widget>[
                 Text('最後列'),
                 Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Checkbox(
-                      checkColor: Colors.white,
-                      activeColor: Colors.blue,
-                      value: _value1,
-                      onChanged: _setValue1,
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Checkbox(
+                            checkColor: Colors.white,
+                            activeColor: Colors.blue,
+                            value: _value1,
+                            onChanged: _setValue1,
+                          ),
+                          Text('左寄せ'),
+                        ],
                     ),
-                    Checkbox(
-                      checkColor: Colors.white,
-                      activeColor: Colors.blue,
-                      value: _value2,
-                      onChanged: _setValue2,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Checkbox(
+                          checkColor: Colors.white,
+                          activeColor: Colors.blue,
+                          value: _value2,
+                          onChanged: _setValue2,
+                        ),
+                        Text('右寄せ'),
+                      ],
+                    ),
+
+                    SizedBox(height: 16),
+                    ElevatedButton(
+                      child: Text('席替え実行'),
+                      onPressed: () {
+
+                      },
                     ),
                   ],
-                )
+                ),
               ],
             ),
           ],
