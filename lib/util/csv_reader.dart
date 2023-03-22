@@ -20,13 +20,26 @@ class CsvReader{
 
     for (int i = 0; i < fields.length; i++) {
       List person = fields[i];
+
+      bool isFront = _frontTransform(person[2]);
+
       Map<String, dynamic> map = {
         "number": person[0],
         "name": person[1],
-        "front": person[2]
+        "front": isFront
       };
       member.add(map);
     }
     return member;
   }
+}
+
+bool _frontTransform (dynamic front){
+  final bool isFront;
+  if(front == 1){ //希望あり 1
+    isFront = true;
+  }else{          //希望なし 0 または null
+    isFront = false;
+  }
+  return isFront;
 }

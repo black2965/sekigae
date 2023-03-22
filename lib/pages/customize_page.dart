@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:sekigae/pages/result_page.dart';
+import 'package:sekigae/util/seat.dart';
 
 class CustomizePage extends StatefulWidget {
-  final List member;
+  final List<Map<String,dynamic>> member;
   const CustomizePage({Key? key, required this.member}) : super(key: key);
 
   @override
@@ -10,7 +12,7 @@ class CustomizePage extends StatefulWidget {
 
 class _CustomizePageState extends State<CustomizePage> {
 
-  late List member;
+  late List<Map<String,dynamic>> member;
   late int number;
   int row = 0;
   bool? _value1 = true;
@@ -101,7 +103,10 @@ class _CustomizePageState extends State<CustomizePage> {
                     ElevatedButton(
                       child: Text('席替え実行'),
                       onPressed: () {
-
+                        Seat seat = Seat(member, row, _value1!);
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => ResultPage(seat: seat))
+                        );
                       },
                     ),
                   ],

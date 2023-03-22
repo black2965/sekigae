@@ -59,13 +59,13 @@ class _TestPageState extends State<TestPage> {
                     MaterialPageRoute(builder: (context) => InfoPage()));
               },
             ),
-            TextButton(
-              child: const Text("Result Page"),
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => ResultPage()));
-              },
-            ),
+            // TextButton(
+            //   child: const Text("Result Page"),
+            //   onPressed: () {
+            //     Navigator.push(context,
+            //         MaterialPageRoute(builder: (context) => ResultPage()));
+            //   },
+            // ),
           ],
         ),
       ),
