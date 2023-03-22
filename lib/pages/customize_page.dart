@@ -41,41 +41,36 @@ class _CustomizePageState extends State<CustomizePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('設定画面')),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-
-            Text('人数 $number人'),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text('横数'),
-                SizedBox(width: 16),
-                SizedBox(
-                  width: 100,
-                  child: TextFormField(
-                    keyboardType: TextInputType.number,
-
-                    onChanged: (text) {
-                      setState(() {
-                        row = int.tryParse(text) ?? 0;
-                        print(row);
-                      });
-                    },
+        appBar: AppBar(title: const Text('条件を設定')),
+        body: Center(
+          child: SizedBox(
+            width: 300,
+            child: ListView(
+              children: [
+                ListTile(
+                  leading: const Text('人数'),
+                  title: Text('$number人'),
+                ),
+                ListTile(
+                  leading: const Text('横の席数'),
+                  title: SizedBox(
+                    child: TextFormField(
+                      decoration: const InputDecoration(border: OutlineInputBorder()),
+                      keyboardType: TextInputType.number,
+                      onChanged: (text) {
+                        setState(() {
+                          row = int.tryParse(text) ?? 0;
+                          print(row);
+                        });
+                      },
+                    ),
                   ),
                 ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text('最後列'),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                ListTile(
+                  leading: const Text('最後列'),
+                  title: Column(
+                    children: [
+                      Row(
                         children: <Widget>[
                           Checkbox(
                             checkColor: Colors.white,
@@ -83,37 +78,36 @@ class _CustomizePageState extends State<CustomizePage> {
                             value: _value1,
                             onChanged: _setValue1,
                           ),
-                          Text('左寄せ'),
+                          const Text('左寄せ'),
                         ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Checkbox(
-                          checkColor: Colors.white,
-                          activeColor: Colors.blue,
-                          value: _value2,
-                          onChanged: _setValue2,
-                        ),
-                        Text('右寄せ'),
-                      ],
-                    ),
-
-                    SizedBox(height: 16),
-                    ElevatedButton(
-                      child: Text('席替え実行'),
-                      onPressed: () {
-                        Seat seat = Seat(member, row, _value1!);
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => ResultPage(seat: seat))
-                        );
-                      },
-                    ),
-                  ],
+                      ),
+                      Row(
+                        children: <Widget>[
+                          Checkbox(
+                            checkColor: Colors.white,
+                            activeColor: Colors.blue,
+                            value: _value2,
+                            onChanged: _setValue2,
+                          ),
+                          const Text('右寄せ'),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 20),
+                ElevatedButton(
+                  child: const Text('席替えを実行'),
+                  onPressed: () {
+                    Seat seat = Seat(member, row, _value1!);
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => ResultPage(seat: seat))
+                    );
+                  },
                 ),
               ],
             ),
-          ],
+          ),
         ),
     );
   }
