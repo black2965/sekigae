@@ -5,6 +5,7 @@ import 'package:sekigae/pages/home_page.dart';
 import 'package:sekigae/pages/info_page.dart';
 import 'package:sekigae/pages/result_page.dart';
 import 'package:sekigae/pages/customize_page.dart';
+import 'package:sekigae/testPages/test_seat_display.dart';
 
 class TestPage extends StatefulWidget {
   const TestPage({Key? key}) : super(key: key);
@@ -41,8 +42,10 @@ class _TestPageState extends State<TestPage> {
             TextButton(
               child: const Text("Customize page"),
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => CustomizePage(member: [])));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => CustomizePage(member: [])));
               },
             ),
             TextButton(
@@ -59,6 +62,19 @@ class _TestPageState extends State<TestPage> {
                     MaterialPageRoute(builder: (context) => InfoPage()));
               },
             ),
+            //! ここからデバッグ用ページ
+            const SizedBox(
+              height: 30,
+            ),
+            const Text("ここからデバッグ用ページ"),
+            TextButton(
+              child: const Text("test_seat_display Page"),
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => SeatDisplay()));
+              },
+            ),
+
             // TextButton(
             //   child: const Text("Result Page"),
             //   onPressed: () {

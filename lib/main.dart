@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sekigae/app_theme.dart';
-import 'pages/test_page.dart';
+import 'testPages/test_page.dart';
 
 void main() {
   runApp(const MyApp());
