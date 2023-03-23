@@ -77,15 +77,16 @@ class SeatTable extends StatelessWidget {
         TableCell box = TableCell(child: content);
 
         cell.add(box);
+      }
 
-        //最後の行なら寄せの判定
-        if (i == horizontal - 1) {
-          //trueなら処理なしで既に左に寄っている
-          if (isAlignLeft == false) {
-            cell = List.from(cell.reversed);
-          }
+      //最後の行なら寄せの判定
+      if (i == horizontal - 1) {
+        //trueなら処理なしで既に左に寄っている
+        if (isAlignLeft == false) {
+          cell = List.from(cell.reversed);
         }
       }
+
       TableRow row = TableRow(children: cell);
       assembly.add(row);
     }
