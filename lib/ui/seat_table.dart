@@ -6,6 +6,7 @@ class SeatTable extends StatelessWidget {
   final int height;
   final int width;
   late final List<Map<String, dynamic>> list;
+  late final int number;  //人数
   late final int horizontal; //縦の行数
   late final int vertical; //横の列数
   late final bool isAlignLeft; //左よりかどうか
@@ -32,6 +33,7 @@ class SeatTable extends StatelessWidget {
     }
     //*必要な条件を代入していく
     list = seat.resultSeats;
+    number = list.length;
     vertical = seat.column;
     horizontal = (list.length / vertical).ceil();
     isAlignLeft = seat.isAlignLeft;
@@ -42,7 +44,7 @@ class SeatTable extends StatelessWidget {
 
     //*余る席の処理
     //余りの人数分 空の人間を作成
-    for (int i = 0; i < horizontal * vertical - list.length; i++) {
+    for (int i = 0; i < horizontal * vertical - number; i++) {
       Map<String, dynamic> map = {
         "number": null,
         "name": " ",
