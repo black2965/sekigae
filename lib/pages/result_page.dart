@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sekigae/ui/save_pdf_button.dart';
 import 'package:sekigae/util/seat.dart';
 
 class ResultPage extends StatefulWidget {
@@ -64,11 +65,7 @@ class _ResultPageState extends State<ResultPage> {
           )
         ]
       ),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {  },
-        icon: const Icon(Icons.picture_as_pdf),
-        label: const Text("座席表をPDFで出力"),
-      ),
+      floatingActionButton: const SavePDFButton(),
       body: Center(
         child: Text("aaaaa"),
       ),
