@@ -61,7 +61,7 @@ class SeatTable extends StatelessWidget {
       //列数ぶんTableCellを作成
       for (int j = 0; j < vertical; j++) {
         //人の情報を取得
-        Map<String, dynamic> person = list[i * horizontal + j];
+        Map<String, dynamic> person = list[i * vertical + j];
         int? numInt = person["number"];
         //number != null ならそのまま表示
         String numStr = numInt != null ? numInt.toString() : " ";
