@@ -17,6 +17,19 @@ class SeatTable extends StatelessWidget {
   SeatTable(
       {Key? key, required this.height, required this.width, required this.seat})
       : super(key: key) {
+    //!例外処理
+    if (seat.column == 0 || seat.resultSeats.isEmpty) {
+      table = Table(
+        children: const [
+          TableRow(children: [
+            TableCell(
+              child: Text("結果を正しく表示できません"),
+            )
+          ])
+        ],
+      );
+      return;
+    }
     //*必要な条件を代入していく
     list = seat.resultSeats;
     vertical = seat.column;
