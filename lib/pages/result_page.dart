@@ -77,6 +77,7 @@ class _ResultPageState extends State<ResultPage> {
       ),
       body: Center(
           child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SizedBox(
               width: 800,
