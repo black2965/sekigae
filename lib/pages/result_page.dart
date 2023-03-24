@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sekigae/ui/save_button.dart';
 import 'package:sekigae/util/pdf_creator.dart';
 import 'package:sekigae/util/seat.dart';
 
@@ -68,13 +69,7 @@ class _ResultPageState extends State<ResultPage> {
                 icon: const Icon(Icons.home),
                 label: const Text("ホームへ戻る"))
           ]),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {
-          //TODO Make here to export pdf
-        },
-        icon: const Icon(Icons.picture_as_pdf),
-        label: const Text("座席表をPDFで出力"),
-      ),
+      floatingActionButton: const SaveButton(),
       body: Center(
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
