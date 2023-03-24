@@ -67,8 +67,44 @@ class _ResultPageState extends State<ResultPage> {
       ),
       floatingActionButton: const SavePDFButton(),
       body: Center(
-        child: Text("aaaaa"),
-      ),
+          child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SizedBox(
+              width: 800,
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 575,
+                    child: TextField(
+                      onChanged: (value) => title = value,
+                      decoration: const InputDecoration(
+                        hintText: "タイトルを入力",
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 25,
+                  ),
+                  SizedBox(
+                    width: 200,
+                    child: TextField(
+                      onChanged: (value) => title = value,
+                      decoration: const InputDecoration(
+                        hintText: "日付を入力",
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ],
+              )),
+          const SizedBox(
+            height: 10,
+          ),
+          SeatTable(height: 500, width: 800, seat: widget.seat),
+        ],
+      )),
     );
   }
 }
