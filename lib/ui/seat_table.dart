@@ -6,6 +6,7 @@ class SeatTable extends StatelessWidget {
   final int height;
   final int width;
   late final List<Map<String, dynamic>> list;
+  late final int number;  //人数
   late final int horizontal; //縦の行数
   late final int vertical; //横の列数
   late final bool isAlignLeft; //左よりかどうか
@@ -17,8 +18,22 @@ class SeatTable extends StatelessWidget {
   SeatTable(
       {Key? key, required this.height, required this.width, required this.seat})
       : super(key: key) {
+    //!例外処理
+    if (seat.column == 0 || seat.resultSeats.isEmpty) {
+      table = Table(
+        children: const [
+          TableRow(children: [
+            TableCell(
+              child: Text("結果を正しく表示できません"),
+            )
+          ])
+        ],
+      );
+      return;
+    }
     //*必要な条件を代入していく
     list = seat.resultSeats;
+    number = list.length;
     vertical = seat.column;
     horizontal = (list.length / vertical).ceil();
     isAlignLeft = seat.isAlignLeft;
@@ -29,7 +44,7 @@ class SeatTable extends StatelessWidget {
 
     //*余る席の処理
     //余りの人数分 空の人間を作成
-    for (int i = 0; i < horizontal * vertical - list.length; i++) {
+    for (int i = 0; i < horizontal * vertical - number; i++) {
       Map<String, dynamic> map = {
         "number": null,
         "name": " ",
@@ -48,7 +63,7 @@ class SeatTable extends StatelessWidget {
       //列数ぶんTableCellを作成
       for (int j = 0; j < vertical; j++) {
         //人の情報を取得
-        Map<String, dynamic> person = list[i * horizontal + j];
+        Map<String, dynamic> person = list[i * vertical + j];
         int? numInt = person["number"];
         //number != null ならそのまま表示
         String numStr = numInt != null ? numInt.toString() : " ";
@@ -62,15 +77,16 @@ class SeatTable extends StatelessWidget {
         TableCell box = TableCell(child: content);
 
         cell.add(box);
+      }
 
-        //最後の行なら寄せの判定
-        if (i == horizontal - 1) {
-          //trueなら処理なしで既に左に寄っている
-          if (isAlignLeft == false) {
-            cell = List.from(cell.reversed);
-          }
+      //最後の行なら寄せの判定
+      if (i == horizontal - 1) {
+        //trueなら処理なしで既に左に寄っている
+        if (isAlignLeft == false) {
+          cell = List.from(cell.reversed);
         }
       }
+
       TableRow row = TableRow(children: cell);
       assembly.add(row);
     }
