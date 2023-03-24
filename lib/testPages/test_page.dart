@@ -6,7 +6,6 @@ import 'package:sekigae/pages/info_page.dart';
 import 'package:sekigae/pages/result_page.dart';
 import 'package:sekigae/pages/customize_page.dart';
 import 'package:sekigae/testPages/test_seat_display.dart';
-import 'package:sekigae/util/seat.dart';
 
 class TestPage extends StatefulWidget {
   const TestPage({Key? key}) : super(key: key);
@@ -61,23 +60,6 @@ class _TestPageState extends State<TestPage> {
               onPressed: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => InfoPage()));
-              },
-            ),
-            TextButton(
-              child: const Text("Result Page"),
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => ResultPage(
-                              seat: Seat([
-                                {
-                                  "number": 1,
-                                  "name": "a",
-                                  "front": false,
-                                }
-                              ], 1, false),
-                            )));
               },
             ),
             //! ここからデバッグ用ページ
