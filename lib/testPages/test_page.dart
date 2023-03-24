@@ -26,10 +26,17 @@ class _TestPageState extends State<TestPage> {
           children: [
             const Text("テストページ"),
             TextButton(
-              child: const Text("Home Page"),
+              child: const Text("Export Page"),
               onPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => HomePage()));
+                    MaterialPageRoute(builder: (context) => ExportPage()));
+              },
+            ),
+            TextButton(
+              child: const Text("Guide Page"),
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => GuidePage()));
               },
             ),
             TextButton(
@@ -42,31 +49,12 @@ class _TestPageState extends State<TestPage> {
               },
             ),
             TextButton(
-              child: const Text("Result Page"),
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => ResultPage(
-                              seat: Seat([
-                                {
-                                  "number": 1,
-                                  "name": "a",
-                                  "front": false,
-                                }
-                              ], 1, false),
-                            )));
-              },
-            ),
-            const SizedBox(height: 20),
-            TextButton(
-              child: const Text("Guide Page"),
+              child: const Text("Home Page"),
               onPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => GuidePage()));
+                    MaterialPageRoute(builder: (context) => HomePage()));
               },
             ),
-
             TextButton(
               child: const Text("Info Page"),
               onPressed: () {
@@ -74,15 +62,6 @@ class _TestPageState extends State<TestPage> {
                     MaterialPageRoute(builder: (context) => InfoPage()));
               },
             ),
-
-            TextButton(
-              child: const Text("Export Page"),
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => ExportPage()));
-              },
-            ),
-
             //! ここからデバッグ用ページ
             const SizedBox(
               height: 30,
