@@ -1,7 +1,9 @@
 import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:pdf/widgets.dart' as pdf_widgets;
 import 'package:sekigae/util/make_init_file_name.dart';
+import 'package:sekigae/util/pdf_creator.dart';
 
 class SaveButton extends StatelessWidget {
   const SaveButton({Key? key}) : super(key: key);
@@ -56,7 +58,34 @@ class SaveButton extends StatelessWidget {
             }
           }
         }
+        int saveStatus = await save(path!);
+        if (saveStatus == -1) {
+          showDialog(
+              context: context,
+              builder: (BuildContext context) =>
+                  _alertBuilder(context, "保存に失敗しました"));
+        }
       },
     );
+  }
+
+  AlertDialog _alertBuilder(BuildContext context, String msg) {
+    return AlertDialog(
+      content: Text(msg),
+      actions: [
+        TextButton(
+            onPressed: () {
+              Navigator.pop(context, 'OK');
+            },
+            child: const Text('OK'))
+      ],
+    );
+  }
+
+  Future<int> save(String path) async {
+    final pdf_widgets.Document pdf = await PdfCreator.create();
+    final file = File(path);
+    await file.writeAsBytes(await pdf.save());
+    return 0;
   }
 }
