@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sekigae/app_theme.dart';
 import 'package:sekigae/ui/save_button.dart';
 import 'package:sekigae/util/pdf_creator.dart';
 import 'package:sekigae/util/seat.dart';
@@ -28,25 +29,52 @@ class _ResultPageState extends State<ResultPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppTheme.background_color,
       appBar: AppBar(
+          backgroundColor:AppTheme.app_bar_color ,
           automaticallyImplyLeading: false,
           leading: IconButton(
             onPressed: () => showDialog<String>(
               context: context,
               builder: (BuildContext context) => AlertDialog(
-                title: const Text('条件の設定ページへ戻りますか？'),
-                content: const Text('席替え結果は破棄され、二度と見ることができなくなります。'),
+                backgroundColor: AppTheme.background_color,
+                title: Text('条件の設定ページへ戻りますか？',style: Theme.of(context).textTheme.bodySmall,),
+                content: Container(
+                    width: 300,
+                    child: Text('席替え結果は保存されません',style: Theme.of(context).textTheme.bodyLarge,)
+                ),
+                actionsAlignment: MainAxisAlignment.center,
+                actionsPadding: const EdgeInsets.only(bottom: 15, top:15),
                 actions: <Widget>[
-                  TextButton(
-                    onPressed: () => Navigator.pop(context),
-                    child: const Text('キャンセル'),
+                  Container(
+                    width: 150,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: Colors.white, backgroundColor: AppTheme.background_color, // foreground
+                      ),
+                      onPressed: () => Navigator.pop(context),
+                      child: Text('キャンセル',style: Theme.of(context).textTheme.bodyLarge,),
+                    ),
                   ),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                      Navigator.pop(context);
-                    },
-                    child: const Text('条件の設定ページへ戻る'),
+                  Container(
+                    width: 150,
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                                (Set<MaterialState> states){
+                              if(states.contains(MaterialState.pressed)){
+                                return AppTheme.primary_color;
+                              }
+                              return AppTheme.primary_color;
+                            }
+                        ),
+                      ),
+                      onPressed: () {
+                        Navigator.pop(context);
+                        Navigator.pop(context);
+                      },
+                      child: Text('戻る',style: Theme.of(context).textTheme.bodyLarge,),
+                    ),
                   ),
                 ],
               ),
@@ -54,29 +82,59 @@ class _ResultPageState extends State<ResultPage> {
             icon: const BackButtonIcon(),
             tooltip: '戻る',
           ),
-          title: const Text("席替え結果"),
+          title: Text("席替え結果",style: Theme.of(context).textTheme.titleLarge,),
           actions: <Widget>[
             ElevatedButton.icon(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor:AppTheme.app_bar_color,
+                  elevation: 0,
+                ),
                 onPressed: () => showDialog<String>(
                       context: context,
                       builder: (BuildContext context) => AlertDialog(
-                        title: const Text('ホームへ戻りますか？'),
-                        content: const Text('席替え結果は破棄され、二度と見ることができなくなります。'),
+                        backgroundColor: AppTheme.background_color,
+                        title: Text('ホームへ戻りますか？',style: Theme.of(context).textTheme.bodySmall,),
+                        content: Container(
+                            width: 300,
+                            child: Text('席替え結果は保存されません',style: Theme.of(context).textTheme.bodyLarge,)
+                        ),
+                        actionsAlignment: MainAxisAlignment.center,
+                        actionsPadding: const EdgeInsets.only(bottom: 15, top:15),
                         actions: <Widget>[
-                          TextButton(
-                            onPressed: () => Navigator.pop(context),
-                            child: const Text('キャンセル'),
+                          Container(
+                            width: 150,
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                foregroundColor: Colors.white, backgroundColor: AppTheme.background_color, // foreground
+                              ),
+                              onPressed: () => Navigator.pop(context),
+                              child: Text('キャンセル',style: Theme.of(context).textTheme.bodyLarge,),
+                            ),
                           ),
-                          TextButton(
-                            onPressed: () => Navigator.popUntil(
-                                context, (route) => route.isFirst),
-                            child: const Text('ホームへ戻る'),
+                          Container(
+                            width: 150,
+                            child: ElevatedButton(
+                              style: ButtonStyle(
+                                backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                                    (Set<MaterialState> states){
+                                      if(states.contains(MaterialState.pressed)){
+                                        return AppTheme.primary_color;
+                                      }
+                                      return AppTheme.primary_color;
+                                    }
+                                ),
+                              ),
+                              onPressed: () => Navigator.popUntil(
+                                  context, (route) => route.isFirst),
+                              child: Text('戻る',style: Theme.of(context).textTheme.bodyLarge,),
+                            ),
                           ),
                         ],
                       ),
                     ),
-                icon: const Icon(Icons.home),
-                label: const Text("ホームへ戻る"))
+                icon: const Icon(Icons.home,color: AppTheme.white_text_color,),
+                label: Text("ホームへ戻る" , style: Theme.of(context).textTheme.titleSmall ,),
+            )
           ]),
       floatingActionButton: const SaveButton(),
       body: Center(

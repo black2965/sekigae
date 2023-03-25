@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 //import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
+import '../app_theme.dart';
+
 class InfoPage extends StatefulWidget {
   const InfoPage({Key? key}) : super(key: key);
 
@@ -13,7 +15,9 @@ class _InfoPageState extends State<InfoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: AppTheme.background_color,
         appBar: AppBar(
+          backgroundColor:AppTheme.app_bar_color ,
           title: const Text("このアプリの情報"),
         ),
         body: Center(

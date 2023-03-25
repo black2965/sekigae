@@ -1,7 +1,9 @@
 import 'dart:io';
 import 'package:file_picker/file_picker.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:pdf/widgets.dart' as pdf_widgets;
+import 'package:sekigae/app_theme.dart';
 import 'package:sekigae/util/make_init_file_name.dart';
 import 'package:sekigae/util/pdf_creator.dart';
 
@@ -11,6 +13,7 @@ class SaveButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton.extended(
+      backgroundColor: AppTheme.floating_button_color,
       icon: const Icon(Icons.picture_as_pdf),
       label: const Text("座席表をPDFで出力"),
       onPressed: () async {
@@ -34,21 +37,54 @@ class SaveButton extends StatelessWidget {
             await showDialog<String>(
               context: context,
               builder: (BuildContext context) => AlertDialog(
-                title: const Text('すでに同じ名前のファイルがあります'),
+                backgroundColor: AppTheme.background_color,
+                title: Text('同じ名前のファイルが存在しています',style: Theme.of(context).textTheme.bodySmall,),
+                content: Container(
+                    width: 300,
+                    child: Text('別名で保存または上書き保存してください',style: Theme.of(context).textTheme.bodyLarge,)
+                ),
+                actionsAlignment: MainAxisAlignment.center,
+                actionsPadding: const EdgeInsets.only(bottom: 15, top:15),
                 actions: <Widget>[
-                  TextButton(
-                    onPressed: () {
-                      overWrite = false;
-                      Navigator.pop(context);
-                    },
-                    child: const Text('別の名前で保存する'),
+                  Container(
+                    width: 150,
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                                (Set<MaterialState> states){
+                              if(states.contains(MaterialState.pressed)){
+                                return AppTheme.primary_color;
+                              }
+                              return AppTheme.primary_color;
+                            }
+                        ),
+                      ),
+                      onPressed: () {
+                        overWrite = false;
+                        Navigator.pop(context);
+                      },
+                      child: const Text('別名で保存'),
+                    ),
                   ),
-                  TextButton(
-                    onPressed: () {
-                      overWrite = true;
-                      Navigator.pop(context);
-                    },
-                    child: const Text('上書きする'),
+                  Container(
+                    width: 150,
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                                (Set<MaterialState> states){
+                              if(states.contains(MaterialState.pressed)){
+                                return AppTheme.primary_color;
+                              }
+                              return AppTheme.primary_color;
+                            }
+                        ),
+                      ),
+                      onPressed: () {
+                        overWrite = true;
+                        Navigator.pop(context);
+                      },
+                      child: const Text('上書き保存'),
+                    ),
                   ),
                 ],
               ),

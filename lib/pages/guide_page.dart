@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 
+import '../app_theme.dart';
+
 class GuidePage extends StatelessWidget {
   const GuidePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppTheme.background_color,
       appBar: AppBar(
+          backgroundColor:AppTheme.app_bar_color ,
           title: const Text('名簿ファイルの作り方')
       ),
       body: Center(

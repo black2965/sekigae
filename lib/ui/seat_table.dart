@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sekigae/app_theme.dart';
 import 'package:sekigae/util/seat.dart';
 
 class SeatTable extends StatelessWidget {
@@ -72,7 +73,7 @@ class SeatTable extends StatelessWidget {
         SizedBox content = SizedBox(
           height: boxHeight,
           width: boxWidth,
-          child: Center(child: Text("$numStr $name")),
+          child: Center(child: Text("$numStr $name",style: TextStyle(color: AppTheme.text_color),)),
         );
         TableCell box = TableCell(child: content);
 
@@ -93,7 +94,7 @@ class SeatTable extends StatelessWidget {
     //ListをもとにTableを作成
     table = Table(
       children: assembly,
-      border: TableBorder.all(color: Colors.black, width: 1),
+      border: TableBorder.all(color: AppTheme.text_color, width: 1),
     );
   }
 
@@ -102,7 +103,7 @@ class SeatTable extends StatelessWidget {
     return Center(
       child: Container(
         decoration: BoxDecoration(
-          border: Border.all(color: Colors.black, width: 1),
+          border: Border.all(color: AppTheme.text_color, width: 1),
         ),
         height: height.toDouble() + 2,
         width: width.toDouble() + 2,
