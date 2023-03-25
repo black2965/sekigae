@@ -11,11 +11,11 @@ class SaveButton extends StatelessWidget {
     return FloatingActionButton.extended(
       icon: const Icon(Icons.picture_as_pdf),
       label: const Text("座席表をPDFで出力"),
-      onPressed: () async{
+      onPressed: () async {
         String? path;
 
-        for(;;){
-          MakeInitFileName file = MakeInitFileName ('Seat', 'pdf');
+        for (;;) {
+          MakeInitFileName file = MakeInitFileName('Seat', 'pdf');
           String fileName = file.fileName;
           path = await FilePicker.platform.saveFile(
             type: FileType.custom,
@@ -26,7 +26,7 @@ class SaveButton extends StatelessWidget {
           if (path == null || File(path).existsSync() == false) {
             //キャンセルした または 同じ名前のファイルが存在しない
             break;
-          }else{
+          } else {
             //同じ名前のファイルが存在する
             bool overWrite = false;
             await showDialog<String>(
@@ -51,13 +51,11 @@ class SaveButton extends StatelessWidget {
                 ],
               ),
             );
-            if (overWrite){
+            if (overWrite) {
               break;
             }
           }
         }
-
-        
       },
     );
   }
