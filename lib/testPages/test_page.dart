@@ -49,7 +49,7 @@ class _TestPageState extends State<TestPage> {
                     context,
                     MaterialPageRoute(
                         builder: (context) => ResultPage(
-                              seat: Seat([
+                              seatIn: Seat([
                                 {
                                   "number": 1,
                                   "name": "a",

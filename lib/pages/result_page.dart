@@ -5,17 +5,26 @@ import 'package:sekigae/util/seat.dart';
 
 import '../ui/seat_table.dart';
 
+String date = "";
+String title = "";
+Seat seat = Seat([
+  {
+    "number": 0,
+    "name": "エラー",
+    "front": false,
+  }
+], 1, false);
+
 class ResultPage extends StatefulWidget {
-  const ResultPage({Key? key, required this.seat}) : super(key: key);
-  final Seat seat;
+  ResultPage({Key? key, required Seat seatIn}) : super(key: key) {
+    seat = seatIn;
+  }
 
   @override
   State<ResultPage> createState() => _ResultPageState();
 }
 
 class _ResultPageState extends State<ResultPage> {
-  String title = "";
-  String date = "";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -94,7 +103,7 @@ class _ResultPageState extends State<ResultPage> {
                   SizedBox(
                     width: 200,
                     child: TextField(
-                      onChanged: (value) => title = value,
+                      onChanged: (value) => date = value,
                       decoration: const InputDecoration(
                         hintText: "日付を入力",
                       ),
@@ -106,7 +115,7 @@ class _ResultPageState extends State<ResultPage> {
           const SizedBox(
             height: 10,
           ),
-          SeatTable(height: 500, width: 800, seat: widget.seat),
+          SeatTable(height: 500, width: 800, seat: seat),
         ],
       )),
     );
