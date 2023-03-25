@@ -103,7 +103,7 @@ class _ResultPageState extends State<ResultPage> {
                   SizedBox(
                     width: 200,
                     child: TextField(
-                      onChanged: (value) => title = value,
+                      onChanged: (value) => date = value,
                       decoration: const InputDecoration(
                         hintText: "日付を入力",
                       ),
