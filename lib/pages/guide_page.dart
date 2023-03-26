@@ -14,8 +14,8 @@ class GuidePage extends StatelessWidget {
           title: const Text('名簿ファイルの作り方')),
       body: Center(
         child: Container(
-          padding: EdgeInsets.all(30),
-          child: Container(
+          padding: const EdgeInsets.all(30),
+          child: SizedBox(
             width: 700,
             child: ListView(
               children: [

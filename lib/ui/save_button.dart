@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'package:file_picker/file_picker.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:pdf/widgets.dart' as pdf_widgets;
 import 'package:sekigae/app_theme.dart';
@@ -39,14 +38,14 @@ class SaveButton extends StatelessWidget {
               builder: (BuildContext context) => AlertDialog(
                 backgroundColor: AppTheme.background_color,
                 title: Text('同じ名前のファイルが存在しています',style: Theme.of(context).textTheme.bodySmall,),
-                content: Container(
+                content: SizedBox(
                     width: 300,
                     child: Text('別名で保存または上書き保存してください',style: Theme.of(context).textTheme.bodyLarge,)
                 ),
                 actionsAlignment: MainAxisAlignment.center,
                 actionsPadding: const EdgeInsets.only(bottom: 15, top:15),
                 actions: <Widget>[
-                  Container(
+                  SizedBox(
                     width: 150,
                     child: ElevatedButton(
                       style: ButtonStyle(
@@ -66,7 +65,7 @@ class SaveButton extends StatelessWidget {
                       child: const Text('別名で保存'),
                     ),
                   ),
-                  Container(
+                  SizedBox(
                     width: 150,
                     child: ElevatedButton(
                       style: ButtonStyle(

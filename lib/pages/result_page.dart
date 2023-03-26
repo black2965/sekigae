@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sekigae/app_theme.dart';
 import 'package:sekigae/ui/save_button.dart';
-import 'package:sekigae/util/pdf_creator.dart';
 import 'package:sekigae/util/seat.dart';
 
 import '../ui/seat_table.dart';
@@ -39,14 +38,14 @@ class _ResultPageState extends State<ResultPage> {
               builder: (BuildContext context) => AlertDialog(
                 backgroundColor: AppTheme.background_color,
                 title: Text('条件の設定ページへ戻りますか？',style: Theme.of(context).textTheme.bodySmall,),
-                content: Container(
+                content: SizedBox(
                     width: 300,
                     child: Text('席替え結果は保存されません',style: Theme.of(context).textTheme.bodyLarge,)
                 ),
                 actionsAlignment: MainAxisAlignment.center,
                 actionsPadding: const EdgeInsets.only(bottom: 15, top:15),
                 actions: <Widget>[
-                  Container(
+                  SizedBox(
                     width: 150,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
@@ -56,7 +55,7 @@ class _ResultPageState extends State<ResultPage> {
                       child: Text('キャンセル',style: Theme.of(context).textTheme.bodyLarge,),
                     ),
                   ),
-                  Container(
+                  SizedBox(
                     width: 150,
                     child: ElevatedButton(
                       style: ButtonStyle(
@@ -94,14 +93,14 @@ class _ResultPageState extends State<ResultPage> {
                       builder: (BuildContext context) => AlertDialog(
                         backgroundColor: AppTheme.background_color,
                         title: Text('ホームへ戻りますか？',style: Theme.of(context).textTheme.bodySmall,),
-                        content: Container(
+                        content: SizedBox(
                             width: 300,
                             child: Text('席替え結果は保存されません',style: Theme.of(context).textTheme.bodyLarge,)
                         ),
                         actionsAlignment: MainAxisAlignment.center,
                         actionsPadding: const EdgeInsets.only(bottom: 15, top:15),
                         actions: <Widget>[
-                          Container(
+                          SizedBox(
                             width: 150,
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
@@ -111,7 +110,7 @@ class _ResultPageState extends State<ResultPage> {
                               child: Text('キャンセル',style: Theme.of(context).textTheme.bodyLarge,),
                             ),
                           ),
-                          Container(
+                          SizedBox(
                             width: 150,
                             child: ElevatedButton(
                               style: ButtonStyle(

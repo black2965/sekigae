@@ -30,7 +30,7 @@ class _TestPageState extends State<TestPage> {
               child: const Text("Home Page"),
               onPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => HomePage()));
+                    MaterialPageRoute(builder: (context) => const HomePage()));
               },
             ),
             TextButton(
@@ -39,7 +39,7 @@ class _TestPageState extends State<TestPage> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => CustomizePage(member: [])));
+                        builder: (context) => const CustomizePage(member: [])));
               },
             ),
             TextButton(
@@ -64,7 +64,7 @@ class _TestPageState extends State<TestPage> {
               child: const Text("Guide Page"),
               onPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => GuidePage()));
+                    MaterialPageRoute(builder: (context) => const GuidePage()));
               },
             ),
 
@@ -72,7 +72,7 @@ class _TestPageState extends State<TestPage> {
               child: const Text("Info Page"),
               onPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => InfoPage()));
+                    MaterialPageRoute(builder: (context) => const InfoPage()));
               },
             ),
 
@@ -80,7 +80,7 @@ class _TestPageState extends State<TestPage> {
               child: const Text("Export Page"),
               onPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => ExportPage()));
+                    MaterialPageRoute(builder: (context) => const ExportPage()));
               },
             ),
 

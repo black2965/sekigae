@@ -22,8 +22,8 @@ class _InfoPageState extends State<InfoPage> {
         ),
         body: Center(
           child: Container(
-            padding: EdgeInsets.all(30),
-            child: Container(
+            padding: const EdgeInsets.all(30),
+            child: SizedBox(
               width: 700,
               child: ListView(
                 children: [

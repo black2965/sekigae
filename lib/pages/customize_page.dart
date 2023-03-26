@@ -59,7 +59,7 @@ class _CustomizePageState extends State<CustomizePage> {
               ListTile(
                 leading: Text('横の席数',style: Theme.of(context).textTheme.bodyMedium,),
                 title: SizedBox(
-                  child: Container(
+                  child: SizedBox(
                     height: 40,
                     child: TextFormField(
                       textAlignVertical: TextAlignVertical.top,
@@ -106,7 +106,7 @@ class _CustomizePageState extends State<CustomizePage> {
                 ),
               ),
               const SizedBox(height: 20),
-              Container(
+              SizedBox(
                 width: 205,
                 child: ElevatedButton(
                   child: const Text('席替えを実行'),
@@ -117,14 +117,14 @@ class _CustomizePageState extends State<CustomizePage> {
                           builder: (BuildContext context) => AlertDialog(
                             backgroundColor: AppTheme.background_color,
                             title: Text('不正な入力',style: Theme.of(context).textTheme.bodySmall,),
-                            content: Container(
+                            content: SizedBox(
                                 width: 300,
                                 child: Text('横の席数に全体の人数より大きな値を設定しないでください',style: Theme.of(context).textTheme.bodyLarge,)
                             ),
                             actionsAlignment: MainAxisAlignment.center,
                             actionsPadding: const EdgeInsets.only(bottom: 15, top:15),
                             actions: <Widget>[
-                              Container(
+                              SizedBox(
                                 width: 150,
                                 child: ElevatedButton(
                                   style: ButtonStyle(

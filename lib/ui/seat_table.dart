@@ -73,7 +73,7 @@ class SeatTable extends StatelessWidget {
         SizedBox content = SizedBox(
           height: boxHeight,
           width: boxWidth,
-          child: Center(child: Text("$numStr $name",style: TextStyle(color: AppTheme.text_color),)),
+          child: Center(child: Text("$numStr $name",style: const TextStyle(color: AppTheme.text_color),)),
         );
         TableCell box = TableCell(child: content);
 

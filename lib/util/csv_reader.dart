@@ -15,7 +15,7 @@ class CsvReader{
     final input = File(_path).openRead();
     final fields = await input
         .transform(utf8.decoder)
-        .transform(CsvToListConverter(eol: '\n'))
+        .transform(const CsvToListConverter(eol: '\n'))
         .toList();
 
     for (int i = 0; i < fields.length; i++) {
