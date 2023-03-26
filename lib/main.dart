@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
           ),
         )
       ),
-      home: const TestPage(),
+      home: const HomePage(),
     );
   }
 }

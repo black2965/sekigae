@@ -44,7 +44,7 @@ class _HomePageState extends State<HomePage> {
           style: TextStyle(fontSize: 50, color: AppTheme.text_color),
         ),
         const Text(
-          "開発版",
+          "v1.0",
           style: TextStyle(fontSize: 25, color: AppTheme.text_color),
         ),
         const SizedBox(height: 50),

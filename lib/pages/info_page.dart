@@ -38,7 +38,7 @@ class _InfoPageState extends State<InfoPage> {
                     child: ListTile(
                       leading: Icon(Icons.verified),
                       title: Text('バージョン'),
-                      subtitle: Text('開発版'),
+                      subtitle: Text('v1.0'),
                     ),
                   ),
                   Card(
@@ -95,7 +95,7 @@ class _InfoPageState extends State<InfoPage> {
                           showLicensePage(
                             context: context,
                             applicationName: '席替え侍',
-                            applicationVersion: '開発版',
+                            applicationVersion: 'v1.0',
                             // applicationIcon: const ImageIcon(
                             //   AssetImage('/assets/icon/icon.png'),
                             // ),
