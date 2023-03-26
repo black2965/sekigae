@@ -10,7 +10,9 @@ Flutterで作られています。
 
 ホームページ：[https://mican3.github.io/sekigae.html](https://mican3.github.io/sekigae.html)
 
-![image](https://user-images.githubusercontent.com/81346541/225467094-da9c07ac-5696-43c4-9aea-6fe933f50e7a.png)
+<img src="https://user-images.githubusercontent.com/81346541/227773343-8c18b143-3b98-4b76-91e0-096c5655466f.png" width="700">
+<img src="https://user-images.githubusercontent.com/81346541/227773339-94f05767-a137-4c15-bb21-0d2a08dbfe7d.png" width="700">
+<img src="https://user-images.githubusercontent.com/81346541/227773337-f5c6f167-6baf-498f-87a7-160e1da494dd.png" width="700">
 
 ## インストール方法
 ### Windows
