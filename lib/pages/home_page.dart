@@ -53,36 +53,33 @@ class _HomePageState extends State<HomePage> {
           style: TextStyle(fontSize: 25, color: AppTheme.text_color),
         ),
         const SizedBox(height: 50),
-        Container(
-          width: 205,
-          child: ElevatedButton(
-            child: const Text("名簿ファイルを読み込む (.csv)" ,style: TextStyle(color: AppTheme.white_text_color),),
-            onPressed: () async {
-              FilePickerResult? result = await FilePicker.platform.pickFiles(
-                  type: FileType.custom,
-                  allowedExtensions: ['csv'],
-                  dialogTitle: "名簿ファイルを選んでください");
-              if (result != null) {
-                CsvReader csv =CsvReader(result.paths);
-                List<Map<String,dynamic>> member = await csv.read();
-                if (!mounted) return;
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => CustomizePage(member: member,)));
-              } else {}
-            },
-          ),
+        ElevatedButton(
+          child: const Text("名簿ファイルを読み込む (.csv)" ,style: TextStyle(color: AppTheme.white_text_color),),
+          onPressed: () async {
+            FilePickerResult? result = await FilePicker.platform.pickFiles(
+                type: FileType.custom,
+                allowedExtensions: ['csv'],
+                dialogTitle: "名簿ファイルを選んでください");
+            if (result != null) {
+              CsvReader csv =CsvReader(result.paths);
+              List<Map<String,dynamic>> member = await csv.read();
+              if (!mounted) return;
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => CustomizePage(member: member,)));
+            } else {}
+          },
         ),
         const SizedBox(height: 50),
         const Text('初めての方は名簿ファイルを作る必要があります',style: TextStyle(color: AppTheme.text_color),),
-        TextButton.icon(
-            icon: Icon(Icons.navigate_next),
+        const SizedBox(height: 10),
+        OutlinedButton(
             onPressed: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) => const GuidePage()));
             },
-            label: Text("名簿ファイルの作り方はこちら",style: TextStyle(color: AppTheme.link),),
+            child: const Text("名簿ファイルの作り方はこちら ＞",style: TextStyle(color: AppTheme.link),),
             )
       ])),
     );
