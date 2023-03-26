@@ -19,7 +19,6 @@ apps:
     extensions: [flutter-stable]
     plugs:
       - home
-      - network
 parts:
   sekigae:
     plugin: flutter

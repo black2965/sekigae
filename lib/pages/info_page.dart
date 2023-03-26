@@ -95,10 +95,10 @@ class _InfoPageState extends State<InfoPage> {
                           showLicensePage(
                             context: context,
                             applicationName: '席替え侍',
-                            applicationVersion: '1.0',
-                            applicationIcon: const ImageIcon(
-                              AssetImage('/assets/icon/icon.png'),
-                            ),
+                            applicationVersion: '開発版',
+                            // applicationIcon: const ImageIcon(
+                            //   AssetImage('/assets/icon/icon.png'),
+                            // ),
                             applicationLegalese:
                                 'GNU General Public License v3.0 or later',
                           );
