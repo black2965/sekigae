@@ -16,7 +16,7 @@ Flutterで作られています。
 
 ## インストール方法
 ### Windows
-[こちらのページ](https://github.com/sis314/sekigae/releases/tag/1.0)からsekigae_windows.zipをダウンロードして解凍してください。
+[こちらのページ](https://github.com/sis314/sekigae/releases/tag/1.0)からsekigae_windows.zipをダウンロードして 解凍してください。
 
 ### Linux
 Snap Store を使って配信しています。
