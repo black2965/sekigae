@@ -6,8 +6,6 @@ Windows と Linux に対応した、新しい席替えアプリ。
 
 Flutterで作られています。
 
-※注意 このアプリは開発中であり、完成していないため、実際に席替えをすることはできません。
-
 ホームページ：[https://mican3.github.io/sekigae.html](https://mican3.github.io/sekigae.html)
 
 <img src="https://user-images.githubusercontent.com/81346541/227773343-8c18b143-3b98-4b76-91e0-096c5655466f.png" width="700">
